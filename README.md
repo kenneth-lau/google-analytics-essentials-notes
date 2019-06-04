@@ -1,0 +1,222 @@
+# Notes on Google Analytics Essential Training
+
+## Terminology
+
+- GA360 - enterprise version
+- Google Tag Manager
+
+## Get started
+
+- Requirements
+  - User must allow first party cookies
+  - Every page must have embedded JS tracking code
+
+## Fundamentals
+
+- Properties and views
+  - account > property > view
+  - should have at property for each site or platform
+  - views allow for different filters
+  - at a minimum should have these views:
+    - main reporting, testing, raw data
+  
+## UI and reports 
+
+- "Insights" - tells you some interesting things about your data
+- Reports
+  - Audience - who's visiting the site?
+  - Acquisition - how are users finding the site?
+  - Behavior - user engagement
+  - Conversion - if you've set goals
+- Metrics and dimensions
+  - Metrics
+    - measures data
+    - e.g. page views, sessions
+  - Dimensions
+    - qualitative
+    - describes data in groups of that data
+    - e.g. browser, device type
+  - Scope
+    - Levels: hit, session, user, product
+    - metrics and dimensions should apply to same scope
+  - Graph data over time
+    - can overlay 2 different metrics for comparison
+    - can compare 2 time periods with the same metric
+    - can plot data for individual dimension (e.g. desktop and mobile)
+  - Using annotations in metric reports
+    - can be private (note for individual user) or shared
+    - e.g. when filters are changed, notes about anomalies
+  - Viewing data
+    - Acquisition > Channels
+      - can select two different metrics to compare
+      - can also view using pivot table
+      - there is a term cloud button
+
+## Filter and segment data
+
+- View filters
+  - can be dangerous to use as it can filter out data from the views
+- basic/quick inline filters
+  - better to use the search bar to filter to get all instances
+- advanced inline filter
+  - can use reg expressions to search OR by using a pipe, "Matching RegExp"
+    - e.g. to find traffic only from facebook or youtube: "facebook|youtube"
+    - Acquisition > ALl traffic > source/medium
+  - Can filter by primary dimension or also by metric
+- Segmentation intro
+  - intent
+  - landing page
+  - type of browser
+  - mobile vs desktop
+  - connection speed, screen resolution
+  - can segment and subsegment
+  - should think in terms of segments not all users as a whole
+  - GA has presegmented reports and also customizable options
+  - Can use secondary dimensions to combine multiple dimensions
+  - Under "Channels", you can "Add segments"
+    - Can then create your own segments
+      - e.g. US male, age 25-34, Windows
+      - can then compare segment against all users
+  - What segments do we want?
+  - - active users
+  - lifetime
+  - cohort
+  - audiences
+    - can create audiences
+    - audience definitions
+      - similar to segments but across other properties
+  - user explorer
+    - look into individual user behavior
+  - Benchmark
+    - to compare to other industry benchmarks
+  - users flow
+- Audience reports
+  - overview
+    - use date range comparison
+    - not too much for analysis
+  - demographics and interests
+    - can break down by gender, age
+    - can sort by different dimensions (e.g. conversion rate)
+  - geographic location
+    - can drill down by location
+    - can break down by per user (e.g. per session value)
+    - to see user engagement (e.g. session duration)
+    - these metrics may not be reliable
+  - technology
+    - browser and OS
+      - can use to surface browser compatibility issues
+      - can use a "weighted sort" to filter out insignificant results
+      - use this to optimize site for user needs
+  - mobile
+    - desktop, mobile, tablet
+    - devices report
+      - specific brands and devices
+      - e.g. Apple vs Android
+    - compare mobile vs desktop
+  
+- Acquisition reports
+  - Overview
+    - channels
+  - All traffic
+    - Channels
+      - Q: Which channel/medium sends you the most traffic?
+      - Q: Which channel is the most bang for buck?
+      - organic search - i.e. Google search
+      - paid search - sponsored search results
+      - direct - user types in URL or lack of information
+      - referral - user clicking on a link
+      - social - social media sites
+      - affiliates - affiliate marketing efforts
+      - display - graphical ads (not search ads)
+    - Source/Medium
+      - identifies specific sources
+      - answers "who is the source?"
+    - Referrals
+      - to see sites that refer to your site
+      - add secondary dimension of landing page to see the page where users are coming to
+    - Campaign tracking
+      - to track by campaign name from same source and medium
+      - works by using UTM parameters that are added to the URL
+      - GA then uses this URL for tracking
+      - hint: tag your campaigns (e.g. tweets) to get more granular data by building campaign URLs
+  - Behavior
+    - Q: How are your users engaging?
+    - Overview
+      - pageviews: user can view same page multiple times
+      - unique pageviews: per session
+      - bounce rate: when entire visit only had one page 
+      - % exit: how many users are leaving the site from that page
+    - Behavior flow
+      - where are users dropping off?
+      - useful if you have content groups
+    - Site content
+      - All pages
+        - idea: click comparison button then select bounce rate to see problem areas by specific page
+          - can then click that page and see how users got to that page
+          - find pages with high bounce rates
+      - Content drilldown
+        - good for sites with deep structure and hierarchy
+    - Site speed
+      - measures load time and latency of pages
+      - Q: what pages load the slowest?
+        - we can then fix these first
+      - Click "Technical" stats to get more details
+      - Check load time of landing pages
+        - Change primary dimension to landing page
+      - Check load times by OS
+        - e.g. Chrome OS vs Android
+      - Check average load time over time range to look for anomalies
+      - Also check map overlay to see if there are any issues in specific locations
+      - speed suggestions
+        - gives suggestions for how to improve speed
+    - Events
+      - any user behavior that you want to track
+      - to add new events see Advanced course
+        - need to add JS
+        - use Google Tag Manager
+        - Dev guide: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+        - categorize events by category, action, label
+      - event reports
+    - Conversion reports
+      - Overview
+        - can configure 20 goals per view
+        - need to configure goals to use this
+        - can assign monetary value to goal
+          - can also use goal conversion rate, not monetary/revenue
+        - to find what segments/users are outperforming or underperforming
+        - Goals
+        - Goal URLs
+          - to see the exact location where goal was completed
+        - Reverse goal path
+          - use this to find the path user took to achieve goal
+      - Funnel visualization
+        - funnel report
+          - allows you to see where users abandoned the site or the funnel (set milestones)
+      - Goal flow report
+        - can drill down to specific parameters
+        - see more details such as funnel exits
+      - IDEAS for goals
+        - anytime someone sees a product page
+        - time on site
+        - number of pages viewed
+      - TODO: Must have goals configured and set up to make use of these reports
+    - Real-time reports
+      - see instantaneous results
+      - could be important for sites with content that changes multiple times daily
+      - can be useful to track interaction during promotions or campaigns
+      - advanced tip: can use real-time API to publish this data
+  - Basic configuration
+    - 100 accounts, 50 properties, 25 views
+    - In properties, can create audience definitions
+    - In view section
+      - TIP: set up goals here
+    - can do user management at account/property/view level
+  - IMPORTANT: Set up goals
+    - View > Goal
+      - can use templates for ideas
+    - e.g. successfully complete contact us page, i.e. form completion
+    - e.g. duration of 5 min or longer
+    - e.g. pages per session
+    - e.g. goals based on event interactions
+    - if goal has clear steps, set up a funnel
+    - if goal has a $ value, add value
